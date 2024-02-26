@@ -44,6 +44,11 @@ class Usuario extends Authenticatable
         return $permisos->contains('permiso', $permiso);
     }
 
+    public function getAvatarAttribute(): string
+    {
+        return $this->persona->avatar;
+    }
+
     public function tieneRol($rol): bool
     {
         $rol = $this->rol;

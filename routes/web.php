@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Home\HomeAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Login::class)->name('login');
+
+Route::group(['middleware' => 'auth'], function () {
+    //HOME ADMIN
+    Route::get('/home', HomeAdmin::class)->name('home');
+
+});
